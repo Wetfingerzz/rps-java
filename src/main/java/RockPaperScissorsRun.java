@@ -28,9 +28,9 @@ public class RockPaperScissorsRun {
                 int number2 = playerTwo.random();
                 System.out.println(playerTwo + " chose: ");
                 game.game(number2).getChoiceName();
-                int z = game.singleMatchResult(number1, number2);
-                if (z > 0) {
-                    if (z == 1) {
+                int a = game.singleMatchResult(number1, number2);
+                if (a > 0) {
+                    if (a == 1) {
                         result1++;
                     } else {
                         result2++;
