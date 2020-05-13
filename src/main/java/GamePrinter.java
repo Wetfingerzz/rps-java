@@ -1,9 +1,12 @@
-public class GameLayout {
-    public void startScreen() {
-        System.out.println("!!! ROCK---PAPER---SCISSORS---LIZARD---SPOCK !!!");
+import java.util.Scanner;
+
+public class GamePrinter {
+    private static final String HEADER = "-----ROCK, PAPER, SCISSORS, LIZARD, SPOCK-----";
+    public void printStartScreen() {
+        System.out.println(HEADER);
         System.out.println("Please enter your name: ");
     }
-    public void rulesScreen() {
+    public void printRulesScreen() {
         System.out.println("Here are some basic rules for you my little friend:");
         System.out.println("ROCK crushes SCISSORS");
         System.out.println("SCISSORS cut PAPER");
@@ -16,9 +19,9 @@ public class GameLayout {
         System.out.println("SPOCK crumbles ROCK");
         System.out.println("Enjoy the game!");
     }
-    public void launchMenu() {
-        System.out.println("-----ROCK, PAPER, SCISSORS, LIZARD, SPOCK-----");
+    public void printLaunchMenu() {
         System.out.println();
+        System.out.println(HEADER);
         System.out.println("To play ROCK press --> 1 <--");
         System.out.println("To play PAPER press --> 2 <--");
         System.out.println("To play SCISSORS press --> 3 <--");
@@ -26,10 +29,10 @@ public class GameLayout {
         System.out.println("To play SPOCK press ---> 5 <---");
         System.out.println("If you want to end the game press --> x <--");
         System.out.println("If you want to restart your current game press --> n <--");
+        System.out.println(HEADER);
         System.out.println();
-        System.out.println("-----ROCK, PAPER, SCISSORS, LIZARD, SPOCK-----");
     }
-    public void endScreen() {
+    public void printEndScreen() {
         System.out.println("If you dare to play another game PRESS ---> n <---");
         System.out.println("If the fear is so unbearable and paralyzing PRESS ---> x <---");
     }

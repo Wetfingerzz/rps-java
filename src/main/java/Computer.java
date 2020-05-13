@@ -8,7 +8,7 @@ public class Computer {
     }
     public int random() {
         Random rg = new Random();
-        int random = rg.nextInt(3);
+        int random = rg.nextInt(5);
         return random + 1;
     }
 
