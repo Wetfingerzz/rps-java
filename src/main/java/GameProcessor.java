@@ -20,7 +20,12 @@ public class GameProcessor {
     }
 
     public int getSingleMatchResult(Choice playerOne, Choice computer) {
-        if (playerOne.equals(computer) ) {
+        if (playerOne instanceof Rock && computer instanceof Rock
+            || playerOne instanceof Paper && computer instanceof Paper
+            || playerOne instanceof Scissors && computer instanceof Scissors
+            || playerOne instanceof Lizard && computer instanceof Lizard
+            || playerOne instanceof Spock && computer instanceof Spock
+        ) {
             System.out.println("It's a TIE");
             return 0;
         } else if ((playerOne instanceof Scissors && computer instanceof Paper)
@@ -51,19 +56,18 @@ public class GameProcessor {
         }
     }
 
-    public int getPlayerChoice(Scanner sn, Player player) {
+    public Choice getPlayerChoice(Scanner sn, Player player) {
         System.out.println("Your move:");
-        int playersChoice = sn.nextInt();
-        System.out.println(player + " threw: ");
+        Choice playersChoice = getChoice(sn.nextInt());
+        System.out.println(player + " threw: " + playersChoice);
         return playersChoice;
     }
 
-    public int getComputerChoice(Scanner sn, Computer playerTwo) {
-        int computersChoice = playerTwo.random();
-        System.out.println(playerTwo + " chose: ");
+    public Choice getComputerChoice(Scanner sn, Computer playerTwo) {
+        Choice computersChoice = getChoice(playerTwo.random());
+        System.out.println(playerTwo + " threw: " + computersChoice);
         return computersChoice;
     }
-
 
 
 }

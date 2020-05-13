@@ -3,4 +3,9 @@ public class Lizard implements Choice {
     public void getChoiceName() {
         System.out.println("LIZARD");
     }
+
+    @Override
+    public String toString() {
+        return "LIZARD";
+    }
 }

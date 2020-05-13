@@ -4,4 +4,8 @@ public class Rock implements Choice {
         System.out.println("ROCK");
     }
 
+    @Override
+    public String toString() {
+        return "ROCK";
+    }
 }

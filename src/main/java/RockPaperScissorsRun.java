@@ -18,10 +18,8 @@ public class RockPaperScissorsRun {
             System.out.println("Hey! " + name + ", after how many rounds we can declare a winner?");
             int howManyRounds = scanner.nextInt();
             for (int round = 1; round < howManyRounds; round++) {
-                int playerOneChoice = game.getPlayerChoice(scanner, playerOne);
-                game.getChoice(playerOneChoice).getChoiceName();
-                int playerTwoChoice = game.getComputerChoice(scanner, playerTwo);
-                game.getChoice(playerTwoChoice).getChoiceName();
+                Choice playerOneChoice = game.getPlayerChoice(scanner, playerOne);
+                Choice playerTwoChoice = game.getComputerChoice(scanner, playerTwo);
                 int singleMatchResult = game.getSingleMatchResult(playerOneChoice, playerTwoChoice);
                 if (singleMatchResult > 0) {
                     if (singleMatchResult == 1) {
@@ -29,8 +27,8 @@ public class RockPaperScissorsRun {
                     } else {
                         result2++;
                     }
-                    System.out.println("The score is: " + result1 + " : " + result2);
                 }
+                System.out.println("The score is: " + result1 + " : " + result2);
             }
             game.displayFinalResult(result1, result2);
             printer.printEndScreen();

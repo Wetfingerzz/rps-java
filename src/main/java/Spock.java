@@ -3,4 +3,9 @@ public class Spock implements Choice {
     public void getChoiceName() {
         System.out.println("SPOCK");
     }
+
+    @Override
+    public String toString() {
+        return "SPOCK";
+    }
 }

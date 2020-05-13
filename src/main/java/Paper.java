@@ -4,4 +4,8 @@ public class Paper implements Choice {
         System.out.println("PAPER");
     }
 
+    @Override
+    public String toString() {
+        return "PAPER";
+    }
 }

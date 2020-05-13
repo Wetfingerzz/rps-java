@@ -4,4 +4,8 @@ public class Scissors implements Choice {
         System.out.println("SCISSORS");
     }
 
+    @Override
+    public String toString() {
+        return "SCISSORS";
+    }
 }
