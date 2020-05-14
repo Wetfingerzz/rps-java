@@ -17,7 +17,7 @@ public class RockPaperScissorsRun {
         while (!end) {
             System.out.println("Hey! " + name + ", after how many rounds we can declare a winner?");
             int howManyRounds = scanner.nextInt();
-            for (int round = 1; round < howManyRounds; round++) {
+            for (int round = 0; round < howManyRounds; round++) {
                 Choice playerOneChoice = game.getPlayerChoice(scanner, playerOne);
                 Choice playerTwoChoice = game.getComputerChoice(scanner, playerTwo);
                 int singleMatchResult = game.getSingleMatchResult(playerOneChoice, playerTwoChoice);

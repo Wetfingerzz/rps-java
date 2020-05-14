@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameProcessor {
@@ -21,10 +22,10 @@ public class GameProcessor {
 
     public int getSingleMatchResult(Choice playerOne, Choice computer) {
         if (playerOne instanceof Rock && computer instanceof Rock
-            || playerOne instanceof Paper && computer instanceof Paper
-            || playerOne instanceof Scissors && computer instanceof Scissors
-            || playerOne instanceof Lizard && computer instanceof Lizard
-            || playerOne instanceof Spock && computer instanceof Spock
+                || playerOne instanceof Paper && computer instanceof Paper
+                || playerOne instanceof Scissors && computer instanceof Scissors
+                || playerOne instanceof Lizard && computer instanceof Lizard
+                || playerOne instanceof Spock && computer instanceof Spock
         ) {
             System.out.println("It's a TIE");
             return 0;
@@ -58,16 +59,23 @@ public class GameProcessor {
 
     public Choice getPlayerChoice(Scanner sn, Player player) {
         System.out.println("Your move:");
-        Choice playersChoice = getChoice(sn.nextInt());
-        System.out.println(player + " threw: " + playersChoice);
-        return playersChoice;
+        Choice playersChoice;
+        try {
+            playersChoice = getChoice(sn.nextInt());
+            System.out.println(player + " threw: " + playersChoice);
+            return playersChoice;
+             } catch (InputMismatchException e) {
+            System.out.println("Wrong format!");
+            playersChoice = getChoice(sn.nextInt());
+            System.out.println(player + " threw: " + playersChoice);
+            return playersChoice;
+        }
     }
+
 
     public Choice getComputerChoice(Scanner sn, Computer playerTwo) {
         Choice computersChoice = getChoice(playerTwo.random());
         System.out.println(playerTwo + " threw: " + computersChoice);
         return computersChoice;
     }
-
-
 }
