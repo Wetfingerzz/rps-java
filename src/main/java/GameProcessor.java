@@ -1,4 +1,3 @@
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -49,7 +48,7 @@ public class GameProcessor {
 
     public void displayFinalResult(int res1, int res2) {
         if (res1 > res2) {
-            System.out.println("Light smiles upon just! You've vanquished your enemies! ");
+            System.out.println("Light smiles upon just! You've vanquished your enemy! ");
         } else if (res1 == res2) {
             System.out.println("We need a tie-breaker! Because some things left unhandled haunt you for eternity!");
         } else {
@@ -59,23 +58,60 @@ public class GameProcessor {
 
     public Choice getPlayerChoice(Scanner sn, Player player) {
         System.out.println("Your move:");
-        Choice playersChoice;
-        try {
-            playersChoice = getChoice(sn.nextInt());
-            System.out.println(player + " threw: " + playersChoice);
-            return playersChoice;
-             } catch (InputMismatchException e) {
-            System.out.println("Wrong format!");
-            playersChoice = getChoice(sn.nextInt());
-            System.out.println(player + " threw: " + playersChoice);
-            return playersChoice;
-        }
-    }
+        Choice playersChoice = getChoice(0);
+        boolean exceptionOccurred = true;
+        while (exceptionOccurred) {
+            try {
+                playersChoice = getChoice(sn.nextInt());
+                System.out.println(player + " threw: " + playersChoice);
+                exceptionOccurred = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Oops! Mistakes were made. Try choosing numbers between 1-5");
+                sn.next();
+            }
 
+        }
+        return playersChoice;
+    }
 
     public Choice getComputerChoice(Scanner sn, Computer playerTwo) {
         Choice computersChoice = getChoice(playerTwo.random());
         System.out.println(playerTwo + " threw: " + computersChoice);
         return computersChoice;
     }
+
+    public int getNumberOfRounds(Scanner sn, Player player) {
+        System.out.println("Hey! " + player + ", after how many rounds we can declare a winner?");
+        int howManyRounds = 0;
+        boolean exceptionOccurred = true;
+        while (exceptionOccurred) {
+            try {
+                howManyRounds = sn.nextInt();
+                exceptionOccurred = false;
+                System.out.println("Let the game begin!");
+            } catch (InputMismatchException e) {
+                System.out.println("Oops! Mistakes were made. Try with numbers this time!");
+                sn.next();
+            }
+        }
+        return howManyRounds;
+    }
+/*
+    public int getSingleMatchScoreSigned(int singleResult) {
+        int result1 = 0;
+        int result2 = 0;
+        if (singleResult > 0) {
+            if (singleResult == 1) {
+                result1++;
+            } else {
+                result2++;
+            }
+        }
+        System.out.println("The score is: " + result1 + " : " + result2);
+        return result1 + result2;
+    }
+
+ */
+
 }
+

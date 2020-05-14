@@ -1,11 +1,11 @@
-import java.util.Scanner;
-
 public class GamePrinter {
     private static final String HEADER = "-----ROCK, PAPER, SCISSORS, LIZARD, SPOCK-----";
+
     public void printStartScreen() {
         System.out.println(HEADER);
         System.out.println("Please enter your name: ");
     }
+
     public void printRulesScreen() {
         System.out.println("Here are some basic rules for you my little friend:");
         System.out.println("ROCK crushes SCISSORS");
@@ -19,6 +19,7 @@ public class GamePrinter {
         System.out.println("SPOCK crumbles ROCK");
         System.out.println("Enjoy the game!");
     }
+
     public void printLaunchMenu() {
         System.out.println();
         System.out.println(HEADER);
@@ -32,8 +33,13 @@ public class GamePrinter {
         System.out.println(HEADER);
         System.out.println();
     }
+
     public void printEndScreen() {
         System.out.println("If you dare to play another game PRESS ---> n <---");
         System.out.println("If the fear is so unbearable and paralyzing PRESS ---> x <---");
+    }
+
+    public void printScore(int score1, int score2) {
+        System.out.println(score1 + " : " + score2);
     }
 }

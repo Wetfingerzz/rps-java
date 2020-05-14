@@ -15,8 +15,7 @@ public class RockPaperScissorsRun {
         printer.printRulesScreen();
         printer.printLaunchMenu();
         while (!end) {
-            System.out.println("Hey! " + name + ", after how many rounds we can declare a winner?");
-            int howManyRounds = scanner.nextInt();
+            int howManyRounds = game.getNumberOfRounds(scanner, playerOne);
             for (int round = 0; round < howManyRounds; round++) {
                 Choice playerOneChoice = game.getPlayerChoice(scanner, playerOne);
                 Choice playerTwoChoice = game.getComputerChoice(scanner, playerTwo);
@@ -28,7 +27,7 @@ public class RockPaperScissorsRun {
                         result2++;
                     }
                 }
-                System.out.println("The score is: " + result1 + " : " + result2);
+                printer.printScore(result1, result2);
             }
             game.displayFinalResult(result1, result2);
             printer.printEndScreen();
@@ -43,3 +42,5 @@ public class RockPaperScissorsRun {
         }
     }
 }
+
+
