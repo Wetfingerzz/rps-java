@@ -19,29 +19,12 @@ public class GameProcessor {
         return choice;
     }
 
-    public int getSingleMatchResult(Choice playerOne, Choice computer) {
-        if (playerOne instanceof Rock && computer instanceof Rock
-                || playerOne instanceof Paper && computer instanceof Paper
-                || playerOne instanceof Scissors && computer instanceof Scissors
-                || playerOne instanceof Lizard && computer instanceof Lizard
-                || playerOne instanceof Spock && computer instanceof Spock
-        ) {
-            System.out.println("It's a TIE");
+    public int getSingleMatchResult(Choice playersOneChoice, Choice computersChoice) {
+        if(playersOneChoice.equals(computersChoice)) {
             return 0;
-        } else if ((playerOne instanceof Scissors && computer instanceof Paper)
-                || (playerOne instanceof Paper && computer instanceof Rock)
-                || (playerOne instanceof Paper && computer instanceof Scissors)
-                || (playerOne instanceof Rock && computer instanceof Lizard)
-                || (playerOne instanceof Lizard && computer instanceof Spock)
-                || (playerOne instanceof Spock && computer instanceof Scissors)
-                || (playerOne instanceof Scissors && computer instanceof Lizard)
-                || (playerOne instanceof Lizard && computer instanceof Paper)
-                || (playerOne instanceof Paper && computer instanceof Spock)
-                || (playerOne instanceof Spock && computer instanceof Rock)) {
-            System.out.println("You WIN");
+        } else if (playersOneChoice.getWinsWith().contains(computersChoice)) {
             return 1;
         } else {
-            System.out.println("You LOOSE");
             return 2;
         }
     }
@@ -58,8 +41,8 @@ public class GameProcessor {
 
     public Choice getPlayerChoice(Scanner sn, Player player) {
         System.out.println("Your move:");
-        Choice playersChoice = getChoice(0);
         boolean exceptionOccurred = true;
+        Choice playersChoice = getChoice(0);
         while (exceptionOccurred) {
             try {
                 playersChoice = getChoice(sn.nextInt());
@@ -69,7 +52,6 @@ public class GameProcessor {
                 System.out.println("Oops! Mistakes were made. Try choosing numbers between 1-5");
                 sn.next();
             }
-
         }
         return playersChoice;
     }
@@ -97,7 +79,7 @@ public class GameProcessor {
         return howManyRounds;
     }
 /*
-    public int getSingleMatchScoreSigned(int singleResult) {
+    public int assignSingleMatchScore(int singleResult) {
         int result1 = 0;
         int result2 = 0;
         if (singleResult > 0) {

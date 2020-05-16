@@ -27,6 +27,7 @@ public class RockPaperScissorsRun {
                         result2++;
                     }
                 }
+                printer.printSingleMatchResult(singleMatchResult);
                 printer.printScore(result1, result2);
             }
             game.displayFinalResult(result1, result2);
@@ -35,7 +36,7 @@ public class RockPaperScissorsRun {
             if (nextGame == 'x') {
                 end = true;
             } else if (nextGame == 'n') {
-                end = false;
+                //end = false;
                 result1 = 0;
                 result2 = 0;
             }

@@ -42,4 +42,14 @@ public class GamePrinter {
     public void printScore(int score1, int score2) {
         System.out.println(score1 + " : " + score2);
     }
+    public void printSingleMatchResult(int singleResult) {
+        if(singleResult == 0) {
+            System.out.println("It's a TIE!");
+        } else if (singleResult == 1) {
+            System.out.println("You WIN!");
+        } else {
+            System.out.println("You LOOSE!");
+        }
+
+    }
 }
