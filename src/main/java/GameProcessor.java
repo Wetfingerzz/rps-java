@@ -20,7 +20,7 @@ public class GameProcessor {
     }
 
     public int getSingleMatchResult(Choice playersOneChoice, Choice computersChoice) {
-        if(playersOneChoice.equals(computersChoice)) {
+        if (playersOneChoice.equals(computersChoice)) {
             return 0;
         } else if (playersOneChoice.getWinsWith().contains(computersChoice)) {
             return 1;
@@ -78,22 +78,5 @@ public class GameProcessor {
         }
         return howManyRounds;
     }
-/*
-    public int assignSingleMatchScore(int singleResult) {
-        int result1 = 0;
-        int result2 = 0;
-        if (singleResult > 0) {
-            if (singleResult == 1) {
-                result1++;
-            } else {
-                result2++;
-            }
-        }
-        System.out.println("The score is: " + result1 + " : " + result2);
-        return result1 + result2;
-    }
-
- */
-
 }
 

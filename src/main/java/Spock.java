@@ -2,10 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Spock implements Choice {
-    @Override
-    public void getChoiceName() {
-        System.out.println("SPOCK");
-    }
 
     @Override
     public List<Choice> getWinsWith() {

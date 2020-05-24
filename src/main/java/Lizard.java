@@ -4,11 +4,6 @@ import java.util.List;
 public class Lizard implements Choice {
 
     @Override
-    public void getChoiceName() {
-        System.out.println("LIZARD");
-    }
-
-    @Override
     public List<Choice> getWinsWith() {
         List<Choice> lizardWinsWith = new ArrayList<>();
         lizardWinsWith.add(new Spock());
