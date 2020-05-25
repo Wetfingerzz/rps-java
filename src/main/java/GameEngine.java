@@ -3,23 +3,16 @@ import java.util.Scanner;
 public class GameEngine {
     Scanner scanner = new Scanner(System.in);
     GameProcessor game = new GameProcessor();
+    GamePrinter printer = new GamePrinter();
     private boolean end = false;
     private int result1 = 0;
     private int result2 = 0;
     public Player playerOne;
     public Computer playerTwo = new Computer(new Player("Computer"));
 
-    public Player getPlayerOneName() {
-        String name = scanner.nextLine();
-        playerOne = new Player(name);
-        return playerOne;
-    }
-
     public void play() {
-        GamePrinter printer = new GamePrinter();
-        GameEngine engine = new GameEngine();
         printer.printStartScreen();
-        playerOne = engine.getPlayerOneName();
+        playerOne = game.getPlayerOneName(scanner,playerOne);
         printer.printRulesScreen();
         printer.printLaunchMenu();
         while (!end) {
@@ -40,13 +33,16 @@ public class GameEngine {
             }
             game.displayFinalResult(result1, result2);
             printer.printEndScreen();
-            char nextGame = scanner.next().charAt(0);
-            if (nextGame == 'x') {
-                end = true;
-            } else if (nextGame == 'n') {
-                result1 = 0;
-                result2 = 0;
+            char whatToDo = scanner.next().charAt(0);
+            switch (whatToDo) {
+                case 'x':
+                    end = true;
+                    break;
+                case 'n':
+                    result1 = 0;
+                    result2 = 0;
             }
         }
     }
 }
+

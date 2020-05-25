@@ -78,5 +78,11 @@ public class GameProcessor {
         }
         return howManyRounds;
     }
+
+    public Player getPlayerOneName(Scanner sn, Player player) {
+        String name = sn.nextLine();
+        player = new Player(name);
+        return player;
+    }
 }
 
